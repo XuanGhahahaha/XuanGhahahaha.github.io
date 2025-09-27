@@ -44,6 +44,11 @@ body {
     --theme-color: #017c8a;
     --theme-color-hover: #00cccc30;
     --theme-color-focus: #00cccc60;
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 @media (min-width: 387px) {
@@ -79,6 +84,9 @@ body {
 
 .container-small {
 	max-width: 100%;
+	box-sizing: border-box;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 a {
@@ -190,4 +198,28 @@ pre {
 }
 .bibtex-dark {
   background-color: #4e4e4e;
+}
+
+/* Publication image alignment */
+.publication-image-container {
+  width: 240px !important;
+  min-width: 240px;
+  max-width: 240px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.publication-image {
+  width: 100% !important;
+  height: auto;
+  max-width: none !important;
+}
+
+/* Prevent horizontal overflow on small screens */
+@media (max-width: 576px) {
+  .publication-image-container {
+    width: 150px !important;
+    min-width: 150px;
+    max-width: 150px;
+  }
 }
