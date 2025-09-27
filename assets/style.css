@@ -200,33 +200,48 @@ pre {
   background-color: #4e4e4e;
 }
 
-/* Publication image alignment */
-.publication-image-container {
+/* Publication image alignment - Ultra high specificity */
+div.d-flex div.publication-image-container {
   width: 240px !important;
   min-width: 240px !important;
   max-width: 240px !important;
   flex-shrink: 0 !important;
   box-sizing: border-box !important;
+  display: block !important;
 }
 
-.publication-image-container .publication-image,
-.publication-image-container img.publication-image {
+div.d-flex div.publication-image-container img.publication-image.img-fluid.rounded.img-thumbnail,
+div.d-flex div.publication-image-container .publication-image {
   width: 100% !important;
   height: auto !important;
   max-width: none !important;
   min-width: auto !important;
+  display: block !important;
+}
+
+/* Bootstrap override with maximum specificity */
+.container .row .d-flex .publication-image-container {
+  width: 240px !important;
+  min-width: 240px !important;
+  max-width: 240px !important;
+}
+
+.container .row .d-flex .publication-image-container img {
+  width: 100% !important;
+  max-width: none !important;
 }
 
 /* Prevent horizontal overflow on small screens */
 @media (max-width: 576px) {
-  .publication-image-container {
+  div.d-flex div.publication-image-container,
+  .container .row .d-flex .publication-image-container {
     width: 150px !important;
     min-width: 150px !important;
     max-width: 150px !important;
   }
   
-  .publication-image-container .publication-image,
-  .publication-image-container img.publication-image {
+  div.d-flex div.publication-image-container img.publication-image.img-fluid.rounded.img-thumbnail,
+  .container .row .d-flex .publication-image-container img {
     width: 100% !important;
     height: auto !important;
     max-width: none !important;
